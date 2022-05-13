@@ -15,7 +15,7 @@
     CreateLogsFolder
 
 #Declaration of script variables
-    $Client = "C-QUADRAT"
+    $Client = "ClientName"
     $Server = (Get-CimInstance -ClassName Win32_ComputerSystem).Name
     $Date = Get-Date
     $ServiceName = "XboxGipSvc"
@@ -44,11 +44,11 @@
  {
     Write-Output "$($Date) Sending Alert email..." | Tee-Object -FilePath $LogPath -Append
     
-    $smtpServer = "cquadrat-fr0c.mail.protection.outlook.com"
+    $smtpServer = "SMTP_Server"
     $msg = new-object Net.Mail.MailMessage
     $smtp = new-object Net.Mail.SmtpClient($smtpServer)  
-    $msg.From = "noreply@c-quadrat.fr"
-    $msg.To.Add("cmogis@janus-consulting.fr")
+    $msg.From = "noreply@domainname.extension"
+    $msg.To.Add("username@domainname.extension")
     #$msg.CC.Add("username@domainname.extension")
     $msg.Attachments.Add("$LogPath")
     $msg.subject = $Client + " $Server"  + " Service " + $serviceName + " is " + $service.status
