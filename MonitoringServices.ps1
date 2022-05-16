@@ -7,7 +7,7 @@
 		}
 		else 
 		{ 
-    Write-Host "Le dossier "C:\Logs\" existe déjà !"
+    Write-Host "The folder "C:\Logs\" already exists !"
     }
 }
 
